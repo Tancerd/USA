@@ -4,7 +4,6 @@ import static javax.persistence.EnumType.STRING;
 import static javax.persistence.FetchType.EAGER;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
@@ -31,7 +30,7 @@ public class UserProfile extends AbstractEntity implements IEntity {
 	@Column(nullable=false)
 	private String name;
 
-	private String lastName;
+	private String lastname;
 
 	@Column(nullable=false, unique=true)
 	private String nick;
@@ -44,7 +43,7 @@ public class UserProfile extends AbstractEntity implements IEntity {
 
 	@Column(name="sex")
 	@Enumerated(STRING)
-	private SexType sexType;
+	private Gender gender;
 
 	private String description;
 
@@ -54,6 +53,4 @@ public class UserProfile extends AbstractEntity implements IEntity {
 	@Index(name="user_profile_idx")
 	private User user;
 
-	@Embedded
-	private UserProfileSettings profileSettings;
 }

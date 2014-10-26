@@ -44,7 +44,9 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
 		registry.addResourceHandler("/main/decorators/style/**").addResourceLocations("/WEB-INF/pages/main/decorators/style/")
-			.setCachePeriod(31556926);
+				.setCachePeriod(31556926);
+		registry.addResourceHandler("/gamer/decorators/style/**").addResourceLocations("/WEB-INF/pages/gamer/decorators/style/")
+				.setCachePeriod(31556926);
 	}
 
 	@Bean

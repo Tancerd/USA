@@ -3,4 +3,7 @@
 	<decorator name="main-page" page="/WEB-INF/pages/main/decorators/main-layout.jsp">
 		<pattern>/*</pattern>
 	</decorator>
+	<decorator name="gamer-page" page="/WEB-INF/pages/gamer/decorators/gamer-layout.jsp">
+		<pattern>/gamer/*</pattern>
+	</decorator>
 </decorators>

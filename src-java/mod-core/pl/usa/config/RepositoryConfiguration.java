@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Import;
 import pl.usa.dao.core.EntityRepository;
 import pl.usa.model.core.IEntity;
 import pl.usa.model.gamer.User;
+import pl.usa.model.gamer.UserProfile;
 
 @Configuration
 @Import(SpringConfig.class)
@@ -19,6 +20,11 @@ public class RepositoryConfiguration {
 	@Bean
 	public EntityRepository<User> userRepository() {
 		return createEntityRepository(User.class);
+	}
+
+	@Bean
+	public EntityRepository<UserProfile> userProfileRepository() {
+		return createEntityRepository(UserProfile.class);
 	}
 
 	private <T extends IEntity> EntityRepository<T> createEntityRepository (Class<T> clazz) {

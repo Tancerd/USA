@@ -11,25 +11,24 @@ import pl.usa.model.gamer.User;
 import pl.usa.utils.core.WebUtil;
 
 @Controller
-@RequestMapping("gamer/userProfile.htm")
-public class UserProfileController {
+@RequestMapping("gamer/character.htm")
+public class CharacterController {
 
-	private static final String VIEW_NAME = "gamer/userProfile-view";
-	private static final String REDIRECT_VIEW = "redirect:userProfile-edit.htm";
+	private static final String VIEW_NAME = "gamer/character-view";
+	private static final String REDIRECT_VIEW = "redirect:character-formular.htm";
 
 	@Autowired private WebUtil webUtil;
 
-
-	@RequestMapping(method=GET)
+	@RequestMapping(method = GET)
 	public String initView(Model model) {
 
 		User user = webUtil.getLoggedUser();
 
-		if (user.getProfile() == null) {
+		if (user.getCharacter() == null) {
 			return REDIRECT_VIEW;
 		}
 
-		model.addAttribute("user", user);
+		model.addAttribute("character", user.getCharacter());
 
 		return VIEW_NAME;
 	}

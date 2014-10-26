@@ -45,6 +45,9 @@ public class User extends AbstractEntity implements IEntity {
 	@OneToOne(mappedBy="user", fetch=EAGER, cascade=ALL)
 	private UserProfile profile;
 
+	@OneToOne(mappedBy="character", fetch=EAGER, cascade=ALL)
+	private Character character;
+
 
 	@PrePersist
 	protected void onCreate() {

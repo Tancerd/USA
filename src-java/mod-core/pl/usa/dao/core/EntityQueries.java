@@ -10,12 +10,16 @@ import pl.usa.model.core.IEntity;
 
 public class EntityQueries <T extends IEntity> {
 
-	private SessionFactory sessionFactory;
-	private Class<T> clazz;
+	protected SessionFactory sessionFactory;
+	protected Class<T> clazz;
 
 	public EntityQueries(@Qualifier SessionFactory sessionFactory, Class<T> clazz) {
 		this.sessionFactory = sessionFactory;
 		this.clazz = clazz;
+	}
+
+	public EntityQueries(@Qualifier SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
 	@SuppressWarnings("unchecked")
