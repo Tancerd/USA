@@ -21,7 +21,7 @@ import pl.usa.model.core.IEntity;
 @EqualsAndHashCode(of="id")
 @NoArgsConstructor
 @Entity
-@Table(name="users")
+@Table(name="characters")
 public class Character extends AbstractEntity implements IEntity {
 
 	@OneToOne(fetch=EAGER)

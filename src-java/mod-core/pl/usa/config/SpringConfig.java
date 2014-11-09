@@ -47,6 +47,10 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
 				.setCachePeriod(31556926);
 		registry.addResourceHandler("/gamer/decorators/style/**").addResourceLocations("/WEB-INF/pages/gamer/decorators/style/")
 				.setCachePeriod(31556926);
+		registry.addResourceHandler("/org/decorators/style/**").addResourceLocations("/WEB-INF/pages/org/decorators/style/")
+				.setCachePeriod(31556926);
+		registry.addResourceHandler("/org/decorators/js/**").addResourceLocations("/WEB-INF/pages/org/decorators/js/")
+				.setCachePeriod(31556926);
 	}
 
 	@Bean
@@ -54,7 +58,6 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
 
 		FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
 
-		resolver.setPrefix("");
 		resolver.setSuffix(".jsp");
 		resolver.setCache(true);
 		resolver.setContentType("text/html;charset=UTF-8");

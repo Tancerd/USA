@@ -19,7 +19,7 @@ public class HomePageController {
 	@Autowired private EntityQueries<News> newsQueries;
 
 
-	@RequestMapping({"/index.htm", "/", "/news.htm"})
+	@RequestMapping({"/index.htm", "/news.htm"})
 	public String initNewsView(Model model) {
 
 		model.addAttribute(NEWS_LIST, newsQueries.loadAll());

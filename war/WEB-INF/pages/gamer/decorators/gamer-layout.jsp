@@ -31,10 +31,7 @@
 				<a href="userProfile.htm">Profil gracza</a>
 			</div>
 			<div class="menuLink">
-				<a href="">Zgłoszenie postaci</a>
-			</div>
-			<div class="menuLink">
-				<a href="">Odprawa fabularna</a>
+				<a href="character.htm">Postać</a>
 			</div>
 			<div class="menuLink">
 				<a href="../logout.htm">Wyloguj</a>

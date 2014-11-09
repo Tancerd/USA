@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Import;
 
 import pl.usa.dao.core.EntityRepository;
 import pl.usa.model.core.IEntity;
+import pl.usa.model.gamer.Character;
 import pl.usa.model.gamer.User;
 import pl.usa.model.gamer.UserProfile;
 
@@ -25,6 +26,11 @@ public class RepositoryConfiguration {
 	@Bean
 	public EntityRepository<UserProfile> userProfileRepository() {
 		return createEntityRepository(UserProfile.class);
+	}
+
+	@Bean
+	public EntityRepository<Character> characterRepository() {
+		return createEntityRepository(Character.class);
 	}
 
 	private <T extends IEntity> EntityRepository<T> createEntityRepository (Class<T> clazz) {

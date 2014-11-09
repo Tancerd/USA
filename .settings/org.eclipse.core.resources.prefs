@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//war/WEB-INF/pages/gamer/character-formular-view.jsp=UTF-8
+encoding//war/WEB-INF/pages/gamer/character-view.jsp=UTF-8
 encoding//war/WEB-INF/pages/gamer/userProfile-view.jsp=UTF-8
 encoding//war/WEB-INF/pages/main/about-view.jsp=UTF-8
 encoding//war/WEB-INF/pages/main/contact-view.jsp=UTF-8
@@ -6,3 +8,7 @@ encoding//war/WEB-INF/pages/main/decorators=UTF-8
 encoding//war/WEB-INF/pages/main/decorators/main-layout.jsp=UTF-8
 encoding//war/WEB-INF/pages/main/news-list-view.jsp=UTF-8
 encoding//war/WEB-INF/pages/main/user-formular-view.jsp=UTF-8
+encoding//war/WEB-INF/pages/org/character-list-view.jsp=UTF-8
+encoding//war/WEB-INF/pages/org/news-list-view.jsp=UTF-8
+encoding//war/WEB-INF/pages/org/userProfile-edit-view.jsp=UTF-8
+encoding//war/WEB-INF/pages/org/userProfile-list-view.jsp=UTF-8

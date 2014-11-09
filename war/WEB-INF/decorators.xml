@@ -6,4 +6,7 @@
 	<decorator name="gamer-page" page="/WEB-INF/pages/gamer/decorators/gamer-layout.jsp">
 		<pattern>/gamer/*</pattern>
 	</decorator>
+	<decorator name="org-page" page="/WEB-INF/pages/org/decorators/org-layout.jsp">
+		<pattern>/org/*</pattern>
+	</decorator>
 </decorators>

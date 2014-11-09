@@ -8,9 +8,14 @@
 	<div id="pageContent">
 
 		<div class="articleTitle">Profil gracza</div>
-		<br/>${user.profile.name}
-		<br/>${user.profile.lastname}
-		<br/>${user.profile.nick}
+
+		<div class="articleContent">
+
+			<br/>Imię: ${user.profile.name}
+			<br/>Nazwisko: ${user.profile.lastname}
+			<br/>Nick: ${user.profile.nick}
+
+		</div>
 
 		<br/><a href="userProfile-edit.htm">Edytuj</a>
 
