@@ -20,9 +20,9 @@
 			<tr>
 			<td>${character_index + 1}</td>
 			<td>${character.name}</td>
-			<td>Edytuj</td>
+			<td><a href = "character-edit.htm?id=${character.id}">Edytuj</a></td>
 			</tr>
-	
+
 		</#list>
 
 	</table>

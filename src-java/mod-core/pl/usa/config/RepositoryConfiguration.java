@@ -11,6 +11,8 @@ import pl.usa.model.core.IEntity;
 import pl.usa.model.gamer.Character;
 import pl.usa.model.gamer.User;
 import pl.usa.model.gamer.UserProfile;
+import pl.usa.model.org.BriefingTag;
+import pl.usa.model.org.CharacterPersonalNote;
 
 @Configuration
 @Import(SpringConfig.class)
@@ -31,6 +33,16 @@ public class RepositoryConfiguration {
 	@Bean
 	public EntityRepository<Character> characterRepository() {
 		return createEntityRepository(Character.class);
+	}
+
+	@Bean
+	public EntityRepository<BriefingTag> BriefingTagRepository() {
+		return createEntityRepository(BriefingTag.class);
+	}
+
+	@Bean
+	public EntityRepository<CharacterPersonalNote> characterPersonalNoteRepository() {
+		return createEntityRepository(CharacterPersonalNote.class);
 	}
 
 	private <T extends IEntity> EntityRepository<T> createEntityRepository (Class<T> clazz) {

@@ -17,13 +17,6 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
 
 	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth)
-			throws Exception {
-		auth.inMemoryAuthentication().withUser("user").password("password")
-				.roles("ADMIN");
-	}
-
-	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
  
 	  auth.jdbcAuthentication().dataSource(dataSource)
@@ -36,12 +29,11 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/org/**")
-				.access("hasRole('ROLE_ADMIN')").antMatchers("/dba/**")
-				.access("hasRole('ROLE_ADMIN') or hasRole('ROLE_DBA')")
-				.antMatchers("/gamer/**").access("hasRole('ROLE_USER')").and()
-				.logout().logoutSuccessUrl("/logout.htm").and()
-				.formLogin();
+		http.authorizeRequests().antMatchers("/org/**").access("hasRole('ROLE_ORG')")
+				.antMatchers("/gamer/**").access("hasRole('ROLE_USER')")
+				.and().logout().logoutUrl("/logout.htm").logoutSuccessUrl("/index.htm")
+				.and().formLogin();
+
 		http.csrf().disable();
 
 	}

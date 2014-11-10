@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("org/news-list.htm")
+@RequestMapping({"org/news-list.htm", "org/index.htm", "org/"})
 public class OrganizerNewsListCotrnoller {
 
 	private static final String VIEW_NAME = "org/news-list-view";

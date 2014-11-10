@@ -10,31 +10,66 @@
 
 	<h3><center>Profil użytkownika ${profile.name} ${profile.lastname}</center></h3>
 
-	<form method="POST">
-		<table>
-			<tr>
-				[@spring.bind "profile.name" /]
-				<td>Imię: </td>
-				<td><input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /></td>
-			</tr>
-			<tr>
-				[@spring.bind "profile.lastname" /]
-				<td>Nazwisko:</td>
-				<td><input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /></td>
-				</tr>
-			<tr>
-				[@spring.bind "profile.nick" /]
-				<td>Nick:</td>
-				<td><input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="   Zapisz   " /></td>
-			</tr>
-		</table>
-	</form>
+<form method="POST">
+	<div>
+		<p><input type="submit" value="   Zapisz   " />
+		<input type="button" onClick="parent.location='userProfile-list.htm'" value="Wróć"/></p>
+		
+	</div>
+
+	<div class = "grip">
+		<div class="tagBox userView">
+
+			[@spring.bind "profile.id" /]
+			<input type="hidden" name="${spring.status.expression}" 
+							value="${spring.status.value?default("")}" />
+			[@spring.bind "profile.user.id" /]
+			<input type="hidden" name="${spring.status.expression}" 
+							value="${spring.status.value?default("")}" />
+
+			[@spring.bind "profile.name" /]
+			<p><label>Imię: </label>
+			<input type="text" class="inputText" name="${spring.status.expression}" 
+				value="${spring.status.value?default("")}" /></p>
+
+			[@spring.bind "profile.lastname" /]
+			<p><label>Nazwisko:</label>
+			<input type="text" class="inputText" name="${spring.status.expression}" 
+				value="${spring.status.value?default("")}" /></p>
+
+			<p><label>Emial:</label>
+			<input type="text" class="inputText" disabled="disabled" value="${profile.user.email}"/></p>
+
+			[@spring.bind "profile.nick" /]
+			<p><label>Nick:</label>
+			<input type="text" class="inputText" name="${spring.status.expression}" 
+				value="${spring.status.value?default("")}" /></p>
+
+		</div>
+	</div>
+
+	<div class = "grip">
+		<div class="tagBox userView">
+
+			[@spring.bind "profile.privatePageUrl" /]
+			<p><label>Strona www: </label>
+			<input type="text" class="inputText" name="${spring.status.expression}" 
+				value="${spring.status.value?default("")}" /></p>
+
+			[@spring.bind "profile.phoneNumber" /]
+			<p><label>Numer telefonu: </label>
+			<input type="text" class="inputText" name="${spring.status.expression}" 
+				value="${spring.status.value?default("")}" /></p>
+
+			[@spring.bind "profile.description" /]
+			<p><label>O użytkowniku: </label>
+			<textarea name="${spring.status.expression}" 
+				value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea></p>
+
+		</div>
+	</div>
+
+</form>
 
 </body>
 

@@ -15,6 +15,8 @@
 
     <link href="decorators/style/table.css" rel="stylesheet">
 
+    <link href="decorators/style/edit-pages.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -32,24 +34,25 @@
                     <a href="news-list.htm">Aktualności</a>
                 </li>
                 <li>
-                    <a href="user-list.htm">Lista graczy</a>
+                    <a href="userProfile-list.htm">Lista użytkowników</a>
                 </li>
                 <li>
                     <a href="character-list.htm">Lista postaci</a>
                 </li>
                 <li>
-                    <a href="tag-list.htm">List tagów</a>
+                    <a href="briefingTag-list.htm">List tagów</a>
                 </li>
                 <li>
-                    <a href="logout.htm">Wyloguj</a>
+                    <a href="../logout.htm">Wyloguj</a>
                 </li>
             </ul>
         </div>
 
         <div id="page-content-wrapper">
             <dec:body />
-			<br/>
-            <center><a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Zwijanie/Rozwijanie</a></center>
+			<div id = "toogle">
+            	<p><center><a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Zwijanie/Rozwijanie</a></center></p>
+            </div>
         </div>
 
     </div>

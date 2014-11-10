@@ -7,21 +7,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pl.usa.dao.org.UserProfileQueries;
+import pl.usa.dao.core.EntityQueries;
+import pl.usa.model.org.BriefingTag;
 
 @Controller
-@RequestMapping("org/userProfile-list.htm")
-public class UserProfileListController {
+@RequestMapping("org/briefingTag-list.htm")
+public class BriefingTagListController {
 
-	private static final String VIEW_NAME = "org/userProfile-list-view";
+	private static final String VIEW_NAME = "org/briefingTag-list-view";
 
-	@Autowired private UserProfileQueries userProfileQueries;
+
+	@Autowired private EntityQueries<BriefingTag> briefingTagQueries;
 
 
 	@RequestMapping(method = GET)
 	public String initView(Model model) {
 
-		model.addAttribute("profiles", userProfileQueries.getCommonUsersProfiles());
+		model.addAttribute("tags", briefingTagQueries.loadAll());
 
 		return VIEW_NAME;
 	}
