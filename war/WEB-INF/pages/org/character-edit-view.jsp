@@ -80,6 +80,12 @@
 					name="${spring.status.expression}"
 					value="${spring.status.value?default(" ")}" /> [@spring.bind
 				"character.name" /]
+
+				<p>
+					<label>Profil gracza: </label> <a
+						href="userProfile-edit.htm?id=${character.user.profile.id}" class="link">  Profil</a>
+				</p>
+
 				<p>
 					<label>Imię: </label> <input type="text" class="inputText"
 						name="${spring.status.expression}"
@@ -109,10 +115,10 @@
 			<div class="tagBox userView">
 				[#list character.notes as note]
 
-				<p>${note.dateCreate} ${note.author.email}</p>
-				${note.note}
-				<br/><input type="button" onclick="deleteNote(${note.id})" value="Usuń" />
-				<hr/>
+				<p>${note.dateCreate}${note.author.email}</p>
+				${note.note} <br /> <input type="button"
+					onclick="deleteNote(${note.id})" value="Usuń" />
+				<hr />
 
 				[/#list]
 

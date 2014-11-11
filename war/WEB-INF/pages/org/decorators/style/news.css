@@ -1,0 +1,54 @@
+.newsTitle {
+	text-align: center;
+	padding-bottom: 5px;
+	color: #6A0020;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.newsDate {
+	text-align: right;
+	padding-right: 25px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.newsContent {
+	width: auto;
+	position: relative;
+	padding-left: 25px;
+	color: #101214;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 27px;
+}
+
+.newsAuthor {
+	text-align: right;
+	padding-right: 25px;
+	padding-top: 3px;
+	padding-bottom: 10px;
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.newsType {
+	text-align: left;
+	padding-right: 25px;
+	padding-top: 3px;
+	padding-bottom: 10px;
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.newsEditHref {
+	text-align: center;
+	padding-bottom: 5px;
+	color: #6A0020;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}

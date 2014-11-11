@@ -17,6 +17,8 @@
 
     <link href="decorators/style/edit-pages.css" rel="stylesheet">
 
+    <link href="decorators/style/news.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -51,7 +53,7 @@
         <div id="page-content-wrapper">
             <dec:body />
 			<div id = "toogle">
-            	<p><center><a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Zwijanie/Rozwijanie</a></center></p>
+            	<p><center><a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Zwiń/Rozwiń</a></center></p>
             </div>
         </div>
 

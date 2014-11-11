@@ -11,6 +11,7 @@ import pl.usa.model.core.IEntity;
 import pl.usa.model.gamer.Character;
 import pl.usa.model.gamer.User;
 import pl.usa.model.gamer.UserProfile;
+import pl.usa.model.main.News;
 import pl.usa.model.org.BriefingTag;
 import pl.usa.model.org.CharacterPersonalNote;
 
@@ -43,6 +44,11 @@ public class RepositoryConfiguration {
 	@Bean
 	public EntityRepository<CharacterPersonalNote> characterPersonalNoteRepository() {
 		return createEntityRepository(CharacterPersonalNote.class);
+	}
+
+	@Bean
+	public EntityRepository<News> newsRepository() {
+		return createEntityRepository(News.class);
 	}
 
 	private <T extends IEntity> EntityRepository<T> createEntityRepository (Class<T> clazz) {

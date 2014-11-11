@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Import;
 import pl.usa.dao.core.EntityQueries;
 import pl.usa.model.core.IEntity;
 import pl.usa.model.gamer.User;
-import pl.usa.model.main.News;
 import pl.usa.model.org.BriefingTag;
 import pl.usa.model.org.CharacterPersonalNote;
 
@@ -22,11 +21,6 @@ public class QueriesConfiguration {
 	@Bean
 	public EntityQueries<User> userQueries() {
 		return createEntityQueries(User.class);
-	}
-
-	@Bean
-	public EntityQueries<News> newsQueries() {
-		return createEntityQueries(News.class);
 	}
 
 	@Bean

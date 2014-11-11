@@ -67,7 +67,12 @@
 	font-size: 11px;	
 }
 
-
+.tagBox .link {
+	height: 20px;
+	width: 150px;
+	margin-bottom: 5px;
+	font-size: 11px;	
+}
 
 .tagBox .longText {
 	width: 100% !important;	
