@@ -14,15 +14,37 @@
 
 		<div class="articleContent">
 			<form method="POST">
+
 				[@spring.bind "profile.name" /]
-				Imie: <input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /> <br /> 
+				<p><label>Imie<span style="color : red">*</span>: </label><input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+
 				[@spring.bind "profile.lastname" /]
-				Nazwisko: <input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /> <br /> 
+				<p><label>Nazwisko<span style="color : red">*</span>: </label><input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+
 				[@spring.bind "profile.nick" /]
-				Nick: <input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /> <br /> 
+				<p><label>Nick<span style="color : red">*</span>: </label><input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+
+				[@spring.bind "profile.birthDate" /]
+				<p><label>Data urodzenia<span style="color : red">*</span>: </label><input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" placeholder="dd-MM-rrrr"/>
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+
+				[@spring.bind "profile.phoneNumber" /]
+				<p><label>Numer telefonu: </label><input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+
+				[@spring.bind "profile.privatePageUrl" /]
+				<p><label>Strona www: </label><input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+
 				<input type="submit" value="   Zapisz   " />
 			</form>
 		</div>

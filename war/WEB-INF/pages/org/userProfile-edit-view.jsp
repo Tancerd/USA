@@ -1,4 +1,5 @@
-[#ftl/] [#import "/spring.ftl" as spring /]
+[#ftl/] 
+[#import "/spring.ftl" as spring /]
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -40,6 +41,13 @@
 				[@spring.bind "profile.lastname" /]
 				<p>
 					<label>Nazwisko:</label> <input type="text" class="inputText"
+						name="${spring.status.expression}"
+						value="${spring.status.value?default(" ")}" />
+				</p>
+
+				[@spring.bind "profile.birthDate" /]
+				<p>
+					<label>Data urodzenia:</label> <input type="text" class="inputText"
 						name="${spring.status.expression}"
 						value="${spring.status.value?default(" ")}" />
 				</p>
@@ -87,8 +95,10 @@
 				</p>
 
 				<p>
-					<label>Postać użytkownika: </label> <a
-						href="character-edit.htm?id=${profile.user.character.id}" class="link">  ${profile.user.character.name}</a>
+					<label>Postać użytkownika: </label> 
+					[#if profile.user.character??]
+					<a href="character-edit.htm?id=${profile.user.character.id}" class="link">  ${profile.user.character.name}</a>
+					[/#if]
 				</p>
 
 			</div>

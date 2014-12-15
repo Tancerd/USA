@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pl.usa.model.core.IEntity;
 
+@Transactional
 public class EntityQueries <T extends IEntity> {
 
 	protected SessionFactory sessionFactory;

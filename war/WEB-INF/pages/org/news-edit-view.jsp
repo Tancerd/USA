@@ -24,6 +24,12 @@
 			<input type="hidden" name="${spring.status.expression}" 
 							value="${spring.status.value?default("")}" />
 
+			<p>
+				<label>Dla: </label>
+				[@spring.bind "types" /]
+				[@spring.formSingleSelect "news.type", types, " " /]
+			</p>
+
 			[@spring.bind "news.title" /]
 			<p><label>Tytuł: </label>
 			<textarea name="${spring.status.expression}" 

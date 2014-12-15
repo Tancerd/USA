@@ -28,7 +28,7 @@
 				<a href="index.htm">Strona główna</a>
 			</div>
 			<div class="menuLink">
-				<a href="gamer/userProfile.htm">Profil gracza</a>
+				<a href="gamer/userProfile.htm">Strefa użytkownika</a>
 			</div>
 			<div class="menuLink">
 				<a href="about.htm">O projekcie</a>

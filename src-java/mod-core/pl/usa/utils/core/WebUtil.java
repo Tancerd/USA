@@ -19,7 +19,7 @@ public class WebUtil {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email = auth.getName();
 
-		return userQueries.getUserByEmail(email);
+		return userQueries.findByEmail(email);
 	}
 
 }

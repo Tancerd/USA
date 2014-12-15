@@ -25,7 +25,7 @@
 			<td>${profile.name}</td>
 			<td>${profile.lastname}</td>
 			<td>${profile.nick}</td>
-			<td>TODO</td>
+			<td>${profile.birthDate}</td>
 			<td><a href = "userProfile-edit.htm?id=${profile.id}">Edytuj</a></td>
 			</tr>
 	

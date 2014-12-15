@@ -12,7 +12,7 @@ import pl.usa.model.core.IEntity;
 @Data
 @EqualsAndHashCode(of="id")
 @Entity
-@Table(name="briefing_tag")
+@Table(name="briefing_tags")
 public class BriefingTag  extends AbstractEntity implements IEntity {
 
 	private static final long serialVersionUID = -1544102815507526938L;

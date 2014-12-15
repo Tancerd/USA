@@ -24,7 +24,7 @@ import pl.usa.model.gamer.User;
 @Data
 @EqualsAndHashCode(of="id")
 @Entity
-@Table(name="character_personal_note")
+@Table(name="character_personal_notes")
 public class CharacterPersonalNote extends AbstractEntity implements IEntity {
 
 	private static final long serialVersionUID = 2152507384279822484L;

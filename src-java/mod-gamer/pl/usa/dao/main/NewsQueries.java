@@ -1,5 +1,6 @@
 package pl.usa.dao.main;
 
+import static org.hibernate.criterion.Order.desc;
 import static org.hibernate.criterion.Restrictions.eq;
 import static pl.usa.model.main.NewsType.ALL;
 
@@ -36,12 +37,18 @@ public class NewsQueries extends EntityQueries<News> {
 
 			criteria = sessionFactory.getCurrentSession()
 											.createCriteria(News.class)
-											.add(Restrictions.or(eq("type", type), eq("type", ALL)));
+											.add(Restrictions.or(eq("type", type), eq("type", ALL)))
+											.addOrder(desc("dateCreate"));
 
 			return criteria.list();
 		}
 		else {
-			return loadAll();
+
+			criteria = sessionFactory.getCurrentSession()
+					.createCriteria(News.class)
+					.addOrder(desc("dateCreate"));
+
+			return criteria.list();
 		}
 	}
 

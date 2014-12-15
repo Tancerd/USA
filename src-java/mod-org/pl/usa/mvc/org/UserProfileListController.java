@@ -21,7 +21,7 @@ public class UserProfileListController {
 	@RequestMapping(method = GET)
 	public String initView(Model model) {
 
-		model.addAttribute("profiles", userProfileQueries.getCommonUsersProfiles());
+		model.addAttribute("profiles", userProfileQueries.loadAll());
 
 		return VIEW_NAME;
 	}

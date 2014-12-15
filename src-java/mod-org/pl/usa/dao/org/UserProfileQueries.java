@@ -1,7 +1,5 @@
 package pl.usa.dao.org;
 
-import static org.hibernate.criterion.Restrictions.eq;
-
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -29,8 +27,11 @@ public class UserProfileQueries extends EntityQueries<UserProfile> {
 
 		Criteria criteria = sessionFactory.getCurrentSession()
 													.createCriteria(UserProfile.class)
-													.createAlias("user", "user")
-													.add(eq("user.role", "ROLE_USER"));
+													//.createAlias("user", "user")
+													//.add(eq("user.role", "ROLE_USER"))
+													;
+
+		//criteria.setProjection(distinct(property("id")));
 
 		return criteria.list();
 	}

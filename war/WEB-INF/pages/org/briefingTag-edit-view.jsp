@@ -13,8 +13,7 @@
 <form method="POST">
 	<div>
 		<p><input type="submit" value="   Zapisz   " />
-		<input type="button" onClick="parent.location='briefingTag-list.htm'" value="Wróć"/></p>
-		
+		<input type="button" onClick="parent.location='briefingTag-list.htm'" value="Wróć"/>
 	</div>
 
 	<div class = "grip">
@@ -27,17 +26,20 @@
 			[@spring.bind "tag.identifier" /]
 			<p><label>Identyfikator: </label>
 			<input type="text" class="inputText" name="${spring.status.expression}" 
-				value="${spring.status.value?default("")}" /></p>
+				value="${spring.status.value?default("")}" />
+				<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
 
 			[@spring.bind "tag.description" /]
 			<p><label>Opis: </label>
 			<textarea name="${spring.status.expression}" 
-				value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea></p>
+				value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea>
+				<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
 
 			[@spring.bind "tag.text" /]
 			<p><label>Tekst: </label>
 			<textarea name="${spring.status.expression}" 
-				value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea></p>
+				value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea>
+				<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
 
 		</div>
 	</div>

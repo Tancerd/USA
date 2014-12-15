@@ -15,6 +15,28 @@
 			window.location.href = 'index.htm?type=' + selectedOption;
 
 		}
+
+		function deleteNews(id) {
+
+			var r = confirm("Czy jesteś pewien że chcesz usunąć news?");
+
+			if (r == true) {
+
+				var formData = {id:id};
+
+				$.ajax({
+					url : "news-edit.htm?delete",
+					type : "POST",
+					data : formData,
+					success : function(data, textStatus, jqXHR) {
+						location.reload();
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						alert("Problem łączności...")
+					}
+				});
+			}
+		}
 	</script>
 
 	<div id="navigation">
@@ -36,8 +58,8 @@
 			<div class="newsDate">${news.dateCreate}</div>
 			<div class="newsTitle">${news.title}</div>
 			<div class="newsContent">${news.content}</div>
-			<div class="newsAuthor">${news.author}</div>
-			<div class="newsEditHref"><a href="news-edit.htm?id=${news.id}">Edytuj</a></div>
+			<div class="newsAuthor">Autor: ${news.author}</div>
+			<div class="newsEditHref"><a href="news-edit.htm?id=${news.id}">Edytuj</a>  <a href="#" onclick="deleteNews(${news.id})">Usuń</a></div>
 			<hr/>
 
 		</#list>

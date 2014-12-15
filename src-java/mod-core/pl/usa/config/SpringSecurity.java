@@ -9,11 +9,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import pl.usa.config.support.RedirectUrlAuthenticationSuccessHandler;
+
 @Configuration
 @EnableWebSecurity
 public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
 	@Autowired DataSource dataSource;
+	@Autowired RedirectUrlAuthenticationSuccessHandler successHandler;
 
 
 	@Autowired
@@ -29,10 +32,20 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/org/**").access("hasRole('ROLE_ORG')")
+		http.authorizeRequests()
+				.antMatchers("/org/**").access("hasRole('ROLE_ORG')")
 				.antMatchers("/gamer/**").access("hasRole('ROLE_USER')")
-				.and().logout().logoutUrl("/logout.htm").logoutSuccessUrl("/index.htm")
-				.and().formLogin();
+				.and()
+			.logout()
+				.logoutUrl("/logout.htm")
+				.logoutSuccessUrl("/index.htm")
+				.and()
+			.formLogin()
+				.loginPage("/login.htm")
+				.loginProcessingUrl("/login")
+				.usernameParameter("username")
+				.passwordParameter("password")
+				.successHandler(successHandler);
 
 		http.csrf().disable();
 

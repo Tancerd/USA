@@ -12,15 +12,25 @@
 		<div class="articleTitle">Formularz rejestrowania użytkownika</div>
 		<div class="articleContent">
 			<form method="POST">
+
 				[@spring.bind "user.email" /]
-				Email: <input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /> <br /> 
+				<p><label>Email: </label> 
+				<input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+				<span style="color : red">[@spring.showErrors "<br>" /]</span></p> 
+					
 				[@spring.bind "user.password" /]
-				Hasło: <input type="password" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /> <br /> 
+				<p><label>Hasło: </label>
+				<input type="password" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+				<span style="color : red">[@spring.showErrors "<br>" /]</span></p> 
+
 				[@spring.bind "user.repeatedPassword" /]
-				Powtórz hasło: <input type="password" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /> <br /> 
+				<p><label>Powtórz hasło: </label>
+				<input type="password" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+				<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+ 
 				<input type="submit" value="   Wyślij   " />
 			</form>
 		</div>

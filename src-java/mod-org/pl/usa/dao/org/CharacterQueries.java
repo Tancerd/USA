@@ -1,6 +1,8 @@
 package pl.usa.dao.org;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +17,14 @@ public class CharacterQueries extends EntityQueries<Character> {
 
 		super(sessionFactory);
 		this.clazz = Character.class;
+	}
+
+	public Character findByName(String name) {
+
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Character.class)
+							.add(Restrictions.eq("name", name));
+
+		return (Character) criteria.uniqueResult();
 	}
 
 }

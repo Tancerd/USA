@@ -22,7 +22,7 @@ public class UserQueries extends EntityQueries<User> {
 	}
 
 	@Transactional
-	public User getUserByEmail(String email) {
+	public User findByEmail(String email) {
 
 		Criteria criteria = sessionFactory.getCurrentSession()
 													.createCriteria(User.class)

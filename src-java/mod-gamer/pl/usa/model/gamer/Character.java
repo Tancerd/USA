@@ -4,6 +4,7 @@ import static javax.persistence.FetchType.EAGER;
 
 import java.util.List;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -19,6 +20,7 @@ import org.hibernate.annotations.Index;
 
 import pl.usa.model.core.AbstractEntity;
 import pl.usa.model.core.IEntity;
+import pl.usa.model.org.Briefing;
 import pl.usa.model.org.CharacterPersonalNote;
 
 @Data
@@ -42,4 +44,7 @@ public class Character extends AbstractEntity implements IEntity {
 
 	@OneToMany(fetch = EAGER, mappedBy = "character")
 	private List<CharacterPersonalNote> notes;
+
+	@Embedded
+	private Briefing briefing;
 }

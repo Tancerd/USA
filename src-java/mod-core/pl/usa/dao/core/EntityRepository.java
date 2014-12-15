@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pl.usa.model.core.IEntity;
 
+@Transactional
 public class EntityRepository <T extends IEntity> {
 
 	private SessionFactory sessionFactory;

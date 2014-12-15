@@ -55,6 +55,23 @@
 			});
 
 		}
+
+		function assignCharacter() {
+
+			var formData = {id:${character.id}};
+
+			$.ajax({
+				url : "character-edit.htm?assign",
+				type : "POST",
+				data : formData,
+				success : function(data, textStatus, jqXHR) {
+					location.reload();
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("Problem łączności...")
+				}
+			});
+		}
 	</script>
 
 	<h3>
@@ -73,19 +90,29 @@
 		<div class="grip">
 			<div class="tagBox userView">
 
-				[@spring.bind "character.id" /] <input type="hidden"
+				[@spring.bind "character.id" /] 
+				<input type="hidden"
 					name="${spring.status.expression}"
-					value="${spring.status.value?default(" ")}" /> [@spring.bind
-				"character.user.id" /] <input type="hidden"
+					value="${spring.status.value?default(" ")}" /> 
+
+				[@spring.bind "character.user.id" /] 
+				<input type="hidden"
 					name="${spring.status.expression}"
-					value="${spring.status.value?default(" ")}" /> [@spring.bind
-				"character.name" /]
+					value="${spring.status.value?default(" ")}" />
+
+				[#if character.briefing.gameMaster??]
+				[@spring.bind "character.briefing.gameMaster.id" /] 
+				<input type="hidden"
+					name="${spring.status.expression}"
+					value="${spring.status.value?default(" ")}" />
+				[/#if]
 
 				<p>
 					<label>Profil gracza: </label> <a
 						href="userProfile-edit.htm?id=${character.user.profile.id}" class="link">  Profil</a>
 				</p>
 
+				[@spring.bind "character.name" /]
 				<p>
 					<label>Imię: </label> <input type="text" class="inputText"
 						name="${spring.status.expression}"
@@ -107,17 +134,17 @@
 				</p>
 
 			</div>
-		</div>
-
-		<div class="grip">
-			<div class="tagBox userView"></div>
 
 			<div class="tagBox userView">
 				[#list character.notes as note]
 
-				<p>${note.dateCreate}${note.author.email}</p>
-				${note.note} <br /> <input type="button"
-					onclick="deleteNote(${note.id})" value="Usuń" />
+				<p>
+					${note.author.email}   ${note.dateCreate}
+				</p>
+				<p>${note.note}</p>
+				<p> 
+					<input type="button" onclick="deleteNote(${note.id})" value="Usuń" />
+				</p>
 				<hr />
 
 				[/#list]
@@ -127,6 +154,67 @@
 					<textarea id="new-note"></textarea>
 				</p>
 				<input type="button" onclick="addNote()" value="Dodaj" />
+			</div>
+		</div>
+
+		<div class="grip">
+			<div class="tagBox userView">
+
+				<p>
+					<label>Status</label>
+					[@spring.bind "statuses" /]
+					[@spring.formSingleSelect "character.briefing.briefingStatus", statuses, " " /]
+				</p>
+	
+				<p>
+					<label>Mistrz gry:</label> 
+					<input type="text" class="inputText"
+						value="[#if character.briefing.gameMaster??]${character.briefing.gameMaster.email}[/#if]" disabled="disabled"/>
+					<input type="button" onclick="assignCharacter()" value="Przypisz się" />
+				</p>
+	
+				[@spring.bind "character.briefing.fraction" /]
+				<p>
+					<label>Frakcja: </label> <input type="text" class="inputText"
+						name="${spring.status.expression}"
+						value="${spring.status.value?default(" ")}" />
+				</p>
+	
+				[@spring.bind "character.briefing.description" /]
+				<p>
+					<label>Opis:</label>
+					<textarea name="${spring.status.expression}"
+						value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea>
+				</p>
+	
+				[@spring.bind "character.briefing.know" /]
+				<p>
+					<label>Wie:</label>
+					<textarea name="${spring.status.expression}"
+						value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea>
+				</p>
+	
+				[@spring.bind "character.briefing.want" /]
+				<p>
+					<label>Chce:</label>
+					<textarea name="${spring.status.expression}"
+						value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea>
+				</p>
+	
+				[@spring.bind "character.briefing.have" /]
+				<p>
+					<label>Ma:</label>
+					<textarea name="${spring.status.expression}"
+						value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea>
+				</p>
+	
+				[@spring.bind "character.briefing.gossip" /]
+				<p>
+					<label>Plotki:</label>
+					<textarea name="${spring.status.expression}"
+						value="${spring.status.value?default("")}" >${spring.status.value?default("")}</textarea>
+				</p>
+
 			</div>
 		</div>
 

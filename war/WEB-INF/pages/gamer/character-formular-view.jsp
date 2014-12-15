@@ -14,16 +14,23 @@
 
 		<div class="articleContent">
 			<form method="POST">
+
 				[@spring.bind "character.name" /]
-				Imię: <input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /> <br /> 
+				<p><label>Imię: </label><input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+
 				[@spring.bind "character.age" /]
-				Wiek: <input type="text" name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" /> <br /> 
+				<p><label>Wiek: </label><input type="text" name="${spring.status.expression}" 
+					value="${spring.status.value?default("")}" />
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p>
+
 				[@spring.bind "character.story" /]
-				Historia: <br />
+				<p><label>Historia: </label><br />
 					<textarea name="${spring.status.expression}" 
-					value="${spring.status.value?default("")}" ></textarea> <br /> 
+					value="${spring.status.value?default("")}" rows="20" cols="40">${spring.status.value?default("")}</textarea>
+					<span style="color : red">[@spring.showErrors "<br>" /]</span></p> 
+
 				<input type="submit" value="   Wyślij   " />
 			</form>
 		</div>
