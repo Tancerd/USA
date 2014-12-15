@@ -1,0 +1,107 @@
+-- Table: briefing_tag
+
+CREATE TABLE briefing_tags
+(
+  id bigint NOT NULL,
+  description TEXT NOT NULL,
+  identifier VARCHAR(255) NOT NULL,
+  text TEXT NOT NULL,
+  CONSTRAINT briefing_tag_pkey PRIMARY KEY (id),
+  CONSTRAINT briefing_tag_identifier_uk UNIQUE (identifier)
+);
+
+-- Table: character_personal_note
+
+CREATE TABLE character_personal_notes
+(
+  id bigint NOT NULL,
+  date_create timestamp without time zone,
+  note TEXT,
+  author_id bigint,
+  character_id bigint,
+  CONSTRAINT character_personal_note_pkey PRIMARY KEY (id)
+);
+
+-- Table: characters
+
+CREATE TABLE characters
+(
+  id bigint NOT NULL,
+  age integer NOT NULL,
+  briefing_status VARCHAR(255),
+  description TEXT,
+  fraction VARCHAR(255),
+  gossip text,
+  have text,
+  know text,
+  want text,
+  name VARCHAR(255),
+  story text,
+  game_master bigint,
+  user_id bigint,
+  CONSTRAINT characters_pkey PRIMARY KEY (id)
+);
+
+-- Table: news
+
+CREATE TABLE news
+(
+  id bigint NOT NULL,
+  author VARCHAR(255) NOT NULL,
+  content TEXT,
+  create_date timestamp without time zone NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  type VARCHAR(255) NOT NULL,
+  CONSTRAINT news_pkey PRIMARY KEY (id)
+);
+
+-- Table: profile
+
+CREATE TABLE profiles
+(
+  id bigint NOT NULL,
+  birth_day date,
+  description VARCHAR(255),
+  lastname VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  nick VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255),
+  private_page_url VARCHAR(255),
+  user_id bigint,
+  CONSTRAINT profile_pkey PRIMARY KEY (id)
+);
+
+-- Table: users
+
+CREATE TABLE users
+(
+  id bigint NOT NULL,
+  create_date timestamp without time zone,
+  email VARCHAR(255) NOT NULL,
+  last_login_date timestamp without time zone,
+  password VARCHAR(255) NOT NULL,
+  role VARCHAR(255),
+  CONSTRAINT users_pkey PRIMARY KEY (id),
+  CONSTRAINT user_email_uk UNIQUE (email)
+);
+
+ALTER TABLE character_personal_notes ADD CONSTRAINT character_personal_note_to_author_fk FOREIGN KEY  (author_id)
+      REFERENCES users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE character_personal_notes ADD CONSTRAINT character_personal_note_to_character_fk FOREIGN KEY (character_id)
+      REFERENCES characters (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE characters ADD CONSTRAINT character_to_game_master_fk FOREIGN KEY (game_master)
+      REFERENCES users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE characters ADD CONSTRAINT character_to_user_fk FOREIGN KEY (user_id)
+      REFERENCES users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE profiles ADD CONSTRAINT profile_to_user_fk FOREIGN KEY (user_id)
+      REFERENCES users (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+CREATE SEQUENCE hibernate_sequence START 1;
+
